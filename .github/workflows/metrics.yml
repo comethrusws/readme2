@@ -14,8 +14,15 @@ jobs:
     steps:
       - uses: lowlighter/metrics@latest
         with:
-          # Uses the automatic GitHub token - no PAT needed!
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # Your GitHub token
+          # The following scopes are required:
+          #  - public_access (default scope)
+          # The following additional scopes may be required:
+          #  - read:org      (for organization related metrics)
+          #  - read:user     (for user related data)
+          #  - read:packages (for some packages related data)
+          #  - repo          (optional, if you want to include private repositories)
+          token: ${{ secrets.METRICS_TOKEN }}
 
           # Options
           user: comethrusws
